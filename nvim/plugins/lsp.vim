@@ -1,14 +1,18 @@
 Plug 'neovim/nvim-lspconfig'
-Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
 
 function LspConfig()
 lua << EOF
 local lsp = require "lspconfig"
-local coq = require "coq"
+local servers = {'rls', 'jedi_language_server'}
 -- Rust (rustup component add rls rust-analysis rust-src)
-lsp.rls.setup(coq.lsp_ensure_capabilities({capabilities=capabilities}))
 -- Python (pip install jedi-language-server)
-lsp.jedi_language_server.setup(coq.lsp_ensure_capabilities())
+for _, lsps in pairs(servers) do
+    lsp[lsps].setup {
+        flags = {
+            debounce_text_changes = 150,
+        }
+    }
+end
 EOF
 endfunction
 

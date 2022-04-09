@@ -1,4 +1,3 @@
-vim.cmd('colorscheme molokai')
 
 -----------------------------------------------------------------
 -- settings
@@ -73,9 +72,26 @@ source ~/.config/nvim/plugins/fzf.vim
 source ~/.config/nvim/plugins/lightline.vim
 source ~/.config/nvim/plugins/lsp.vim
 source ~/.config/nvim/plugins/which-key.vim
+source ~/.config/nvim/plugins/treesitter.vim
+source ~/.config/nvim/plugins/colorschemes.vim
+source ~/.config/nvim/plugins/completion.vim
 call plug#end()
 
 doautocmd User PlugLoaded
 ]])
 
+-----------------------------------------------------------------
+-- plugins config
+-----------------------------------------------------------------
+require'nvim-treesitter.configs'.setup {
+    highlight = {
+        enable = true
+    },
+    indent = {
+        enable = true
+    }
+}
+
+--vim.cmd('colorscheme adwaita')
+vim.cmd('colorscheme molokai')
 -- comment
