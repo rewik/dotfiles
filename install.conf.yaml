@@ -7,7 +7,7 @@
 - link:
     ~/.config/kitty: kitty
     ~/.config/nvim: nvim
-    ~/.config/astronvim: astronvim
+        #    ~/.config/astronvim: astronvim
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
