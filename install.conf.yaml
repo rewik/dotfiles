@@ -8,6 +8,7 @@
     ~/.config/kitty: kitty
     ~/.config/nvim: nvim
     ~/.config/fish: fish
+    ~/.config/starship.toml: starship.toml
     ~/.zshrc: zshrc
     #~/.config/astronvim: astronvim
 
