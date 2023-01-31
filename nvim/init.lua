@@ -60,6 +60,12 @@ vim.api.nvim_set_keymap('n', ';', ':', { noremap = true })
 -- plugins
 -----------------------------------------------------------------
 
+vim.lsp.start({
+    name='rust-analyzer',
+    cmd={'rust-analyzer'},
+    root_dir = vim.fs.dirname(vim.fs.find({'Cargo.toml'}, {upward = true})[1]),
+})
+
 vim.cmd([[
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
@@ -70,7 +76,6 @@ endif
 call plug#begin(data_dir . '/plugins')
 source ~/.config/nvim/plugins/fzf.vim
 source ~/.config/nvim/plugins/lightline.vim
-source ~/.config/nvim/plugins/lsp.vim
 source ~/.config/nvim/plugins/which-key.vim
 source ~/.config/nvim/plugins/treesitter.vim
 source ~/.config/nvim/plugins/colorschemes.vim
@@ -79,6 +84,7 @@ call plug#end()
 
 doautocmd User PlugLoaded
 ]])
+--source ~/.config/nvim/plugins/lsp.vim
 
 -----------------------------------------------------------------
 -- plugins config

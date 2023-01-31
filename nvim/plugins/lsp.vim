@@ -4,6 +4,7 @@ function LspConfig()
 lua << EOF
 local lsp = require "lspconfig"
 local servers = {'rls', 'jedi_language_server'}
+--local servers = {'rls'}
 -- Rust (rustup component add rls rust-analysis rust-src)
 -- Python (pip install jedi-language-server)
 for _, lsps in pairs(servers) do
