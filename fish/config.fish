@@ -4,7 +4,7 @@ if status is-interactive
     echo UPDATESTARTUPTTY | gpg-connect-agent
 end
 
-set -x PATH $HOME/.local/bin:$PATH
+#set -x PATH $HOME/.local/bin:$PATH
 set -x GPGKEY 96A4DA12
 set -x EDITOR nvim
 

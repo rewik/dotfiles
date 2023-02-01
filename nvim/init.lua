@@ -60,36 +60,13 @@ vim.api.nvim_set_keymap('n', ';', ':', { noremap = true })
 -- plugins
 -----------------------------------------------------------------
 
-vim.lsp.start({
-    name='rust-analyzer',
-    cmd={'rust-analyzer'},
-    root_dir = vim.fs.dirname(vim.fs.find({'Cargo.toml'}, {upward = true})[1]),
-})
-
-vim.cmd([[
-let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
-if empty(glob(data_dir . '/autoload/plug.vim'))
-    silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-call plug#begin(data_dir . '/plugins')
-source ~/.config/nvim/plugins/fzf.vim
-source ~/.config/nvim/plugins/lightline.vim
-source ~/.config/nvim/plugins/which-key.vim
-source ~/.config/nvim/plugins/treesitter.vim
-source ~/.config/nvim/plugins/colorschemes.vim
-source ~/.config/nvim/plugins/completion.vim
-call plug#end()
-
-doautocmd User PlugLoaded
-]])
---source ~/.config/nvim/plugins/lsp.vim
+require('cfg-plugins')
 
 -----------------------------------------------------------------
 -- plugins config
 -----------------------------------------------------------------
-require'nvim-treesitter.configs'.setup {
+-- treesitter
+require('nvim-treesitter.configs').setup {
     highlight = {
         enable = true
     },
@@ -97,6 +74,14 @@ require'nvim-treesitter.configs'.setup {
         enable = true
     }
 }
+
+-- LSP
+require('lspconfig').rust_analyzer.setup{}
+
+-- fzf
+vim.api.nvim_set_keymap('n', '<leader>b', ':Buffers<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>r', ':Rg<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>R', ':Rg<space>', { noremap = true })
 
 --vim.cmd('colorscheme adwaita')
 vim.cmd('colorscheme molokai')

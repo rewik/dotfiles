@@ -1,1 +1,0 @@
-Plug 'Mofiqul/adwaita.nvim'
