@@ -4,6 +4,8 @@ if status is-interactive
     echo UPDATESTARTUPTTY | gpg-connect-agent
 end
 
+fish_add_path ~/.local/bin
+fish_add_path ~/.cargo/bin
 #set -x PATH $HOME/.local/bin:$PATH
 set -x GPGKEY 96A4DA12
 set -x EDITOR nvim
