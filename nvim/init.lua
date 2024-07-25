@@ -77,11 +77,12 @@ require('nvim-treesitter.configs').setup {
 
 -- LSP
 require('lspconfig').rust_analyzer.setup{}
+require('lspconfig').clangd.setup{}
 
 -- fzf
-vim.api.nvim_set_keymap('n', '<leader>b', ':Buffers<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>r', ':Rg<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>R', ':Rg<space>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>b', ':FzfLua buffers<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>r', ':FzfLua grep_project<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>]', ':FzfLua lsp_references<cr>', { noremap = true })
 
 --vim.cmd('colorscheme adwaita')
 vim.cmd('colorscheme molokai')

@@ -57,9 +57,8 @@ return require('packer').startup(function(use)
     -- packer
     use {'wbthomason/packer.nvim'}
     -- fzf
-    use {'junegunn/fzf'}
-    use {'junegunn/fzf.vim'}
-    use {'stsewd/fzf-checkout.vim'}
+    use {'junegunn/fzf', run = "./install --bin"}
+    use {'ibhagwan/fzf-lua'}
     -- lightline
     use {'itchyny/lightline.vim'}
     -- which-key
